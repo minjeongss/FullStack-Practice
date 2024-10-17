@@ -8,27 +8,21 @@
 
 ### 설치
 
+- 서버 구동: express, cors, dotenv
+- DB 구동: mongoose
+- 데이터 암호화: bcryptjs
+- 토근 발행: jsonwebtoken(jwt)
+
 ```json
   "dependencies": {
-    "bcryptjs": "^2.4.3", // 데이터 암호화
-    "cookie-parser": "^1.4.7", // 서버에서 쿠키 읽기
-    "cors": "^2.8.5", // 서버 구동
-    "dotenv": "^16.4.5", //
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.7.1"
   }
 ```
-
-- 서버 구동
-  - express
-  - dotenv
-  - cors
-- DB 구동
-  - mongoose
-- 데이터 암호화
-  - bcryptjs
-- 로그인 유지
-  - jsonwebtoken(jwt)
 
 ## Frontend

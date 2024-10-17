@@ -35,7 +35,7 @@ const secret = process.env.SECRET_KEY;
 
 // 서버에서 cookie 읽는 부분 설정
 const cookieParser = require("cookie-parser");
-app.use(cookieParser);
+app.use(cookieParser());
 
 // ---------
 
@@ -54,7 +54,7 @@ app.post("/signup", async (req, res) => {
       name,
       password: bcrypt.hashSync(password, saltRounds), // 비밀번호 암호화
     });
-    res.json(userDoc);
+    res.json({ message: "회원가입에 성공했습니다!" });
   } catch (err) {
     console.log(err);
     res.status(409).json({ message: "이미 존재하는 사용자입니다" });
@@ -84,10 +84,26 @@ app.post("/signin", async (req, res) => {
   }
 });
 
-// app.get("/target", async (req, res) => {
-//   const { token } = req.cookies;
-//   console.log(token);
-// });
+app.post("/signout", (req, res) => {
+  res.cookie("token", "").json("로그아웃 되었습니다");
+});
+
+app.get("/target", async (req, res) => {
+  const { token } = req.cookies;
+  if (!token) {
+    res.status(401).json({ message: "로그인이 필요합니다" });
+    return;
+  }
+
+  try {
+    jwt.verify(token, secret, {}, (err, info) => {
+      if (err) throw err;
+      res.json({ info });
+    });
+  } catch (err) {
+    res.json({ message: "로그인이 필요합니다" });
+  }
+});
 
 app.listen(port, () => {
   console.log(`서버 돌아가는중... ${port}`);

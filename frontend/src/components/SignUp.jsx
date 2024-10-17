@@ -14,12 +14,13 @@ const SignUp = () => {
     });
     if (response.ok) {
       const res = await response.json();
-      console.log(res);
+      alert(res.message);
 
       setName("");
       setPassword("");
     } else {
-      alert("회원가입 실패");
+      const res = await response.json();
+      alert(res.message);
     }
   };
   return (

@@ -20,8 +20,7 @@ const SignIn = () => {
       setName("");
       setPassword("");
     } else {
-      const res = await response.json();
-      alert(res.message);
+      alert("로그인 실패");
     }
   };
   return (
