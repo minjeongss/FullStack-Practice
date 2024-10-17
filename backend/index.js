@@ -45,7 +45,6 @@ app.get("/", (req, res) => {
   res.send(`서버가 잘 작동하고 있습니다. ...`);
 });
 
-// 프론트-서버 연결 확인 및 mongodb 연결
 app.post("/signup", async (req, res) => {
   const { name, password } = req.body;
   try {
