@@ -4,6 +4,15 @@
 
 - [jwt secret key 생성](https://randomkeygen.com/)
 
+## FullStack
+
+### 구성
+
+- 회원가입
+- 로그인
+- 로그아웃
+- 정보 조회
+
 ## Backend
 
 ### 설치
@@ -87,7 +96,7 @@ app.post("/signout", (req, res) => {
 });
 ```
 
-- 정보 읽기
+- 정보 조회
 
 ```js
 app.get("/target", async (req, res) => {
@@ -200,7 +209,7 @@ const handleClick = async (e) => {
 };
 ```
 
-- 정보 읽기(UserName.jsx)
+- 정보 조회(UserName.jsx)
 
 ```js
 const handleClick = async () => {
